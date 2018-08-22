@@ -6,6 +6,8 @@ A global shared library using by our Jenkins at Nimbl3.
 
 To add more `step`, simply add a new `.groovy` file to _vars_ directory. Read the [documentation](https://jenkins.io/doc/book/pipeline/shared-libraries/) about extending shared libraries in Jenkins for more information.
 
+Please note that extending shared library to our Jenkins only applies when the newly added file exists in `master` branch.
+
 ## License
 
 This project is Copyright (c) 2014-2018 Nimbl3 Ltd. It is free software,
