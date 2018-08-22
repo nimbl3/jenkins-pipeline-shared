@@ -1,12 +1,12 @@
-# Git Repository Template
+# Jenkins pipeline shared
 
-Project repository template to set up all public projects at [Nimbl3](https://nimbl3.com)
+A global shared library using by our Jenkins at Nimbl3.
 
 ## Usage
 
-Clone the repository
+To add more `step`, simply add a new `.groovy` file to _vars_ directory. Read the [documentation](https://jenkins.io/doc/book/pipeline/shared-libraries/) about extending shared libraries in Jenkins for more information.
 
-`git clone git@github.com:nimbl3/git-template.git`
+Please note that extending shared library to our Jenkins only applies when the newly added file exists in `master` branch.
 
 ## License
 
