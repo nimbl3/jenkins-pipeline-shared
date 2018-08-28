@@ -1,3 +1,3 @@
 def call() {
-  return containsCommitMessage('[skip-build]')
+  return containsCommitMessage('[skip-deploy]')
 }
