@@ -1,7 +1,7 @@
 def call(String message) {
-  def containsMessage = sh (script: "git log -1 | grep '.*\\${message}.*'", returnStatus: true)
-  if (containsMessage == 0) {
-    echo "'${message}' found in git latest commit message"
+  def lastCommitMessage = sh(script: "git log -1", returnStdout: true) as String
+  if (lastCommitMessage.contains(message)) {
+    echo "Found \'${message}\' in git latest commit message"
     return true
   }
   return false
