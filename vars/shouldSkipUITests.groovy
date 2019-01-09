@@ -1,3 +1,3 @@
 def call() {
-  return containsCommitMessage('[skip-uitests]')
+  return containsCommitMessage('[skip-ui-tests]')
 }
