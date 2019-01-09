@@ -1,3 +1,0 @@
-def call() {
-  return containsCommitMessage('[skip-tests]')
-}
