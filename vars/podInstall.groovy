@@ -1,7 +1,3 @@
-def call(String projectDirectory = '') {
-  String options = ''
-  if (projectDirectory != '') {
-    options = " --project-directory=${projectDirectory}"
-  }
-  sh 'summon/bin pod install' + options
+def call(String... options) {
+  sh 'summon/bin pod install' + options.inject('') { r, v -> r + " --$v" }
 }
