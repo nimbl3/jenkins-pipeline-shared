@@ -4,7 +4,7 @@ class SwiftBuildCommand extends SwiftCommand {
 
   final String command = 'build'
 
-  boolean buildTests = true
+  boolean buildTests = false
 
   Map options() {
     [
