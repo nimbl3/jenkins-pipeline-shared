@@ -2,9 +2,16 @@ package co.nimblehq.command.fastlane
 
 import co.nimblehq.command.Command
 
-abstract class FastlaneCommand implements Command {
+class FastlaneCommand implements Command {
 
   final String name = 'fastlane'
 
-  abstract Map options()
+  String lane
+  Map parameters = [:]
+
+  Map options() {
+    Map parameters = parameters.clone()
+    parameters[lane] = true
+    return parameters
+  }
 }

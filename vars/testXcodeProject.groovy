@@ -1,3 +1,6 @@
-def call(Map options = [:]) {
-  sh 'summon/bin fastlane run scan' + options.inject('') { r, k, v -> r + " $k:\"$v\"" }
+def call(Map args = [:]) {
+  GroovyShell groovyShell = new GroovyShell()
+  File file = new File('vars/fastlane.groovy')
+  def fastlane = groovyShell.parse(file)
+  fastlane.call args, 'scan'
 }

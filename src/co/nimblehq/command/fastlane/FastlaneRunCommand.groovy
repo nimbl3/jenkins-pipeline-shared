@@ -4,12 +4,12 @@ class FastlaneRunCommand extends FastlaneCommand {
 
   final String action = 'run'
 
-  String lane
+  String fastlaneAction
   Map parameters = [:]
 
   Map options() {
     Map parameters = parameters.clone()
-    parameters[lane] = true
+    parameters[fastlaneAction] = true
     return parameters
   }
 }
