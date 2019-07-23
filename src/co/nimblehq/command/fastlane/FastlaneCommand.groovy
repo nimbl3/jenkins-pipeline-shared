@@ -7,9 +7,11 @@ class FastlaneCommand {
   String lane
   Map parameters
 
+  List arguments() {
+    [lane]
+  }
+
   Map options() {
-    Map parameters = parameters.clone()
-    parameters[lane] = true
     parameters
   }
 }

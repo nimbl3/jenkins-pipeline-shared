@@ -7,9 +7,11 @@ class FastlaneRunCommand extends FastlaneCommand {
   String fastlaneAction
   Map parameters
 
+  List arguments() {
+    [fastlaneAction]
+  }
+
   Map options() {
-    Map parameters = parameters.clone()
-    parameters[fastlaneAction] = true
     parameters
   }
 }

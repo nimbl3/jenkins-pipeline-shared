@@ -14,6 +14,12 @@ abstract class CommandSerializer {
       serializedCommand += " ${command.action}"
     }
 
+    if (command.metaClass.respondsTo(command, 'arguments') && command.arguments()) {
+      command.arguments().each { argument ->
+        serializedCommand += / "${argument}"/
+      }
+    }
+
     serializedCommand += command.options().inject('') { result, key, value ->
       String formattedKey = formatKey(key)
       String formattedValue = formatValue(value)
