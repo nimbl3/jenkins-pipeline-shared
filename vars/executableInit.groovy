@@ -1,3 +1,5 @@
+import co.nimblehq.command.Summon
+
 def call() {
-  sh 'executable/init'
+  sh Summon.init
 }
