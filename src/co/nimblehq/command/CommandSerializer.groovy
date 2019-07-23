@@ -1,6 +1,8 @@
 package co.nimblehq.command
 
-class CommandSerializer {
+abstract class CommandSerializer {
+
+  abstract String argumentSeparator
 
   String serialize(Command command) {
     String serializedCommand = command.name
@@ -11,7 +13,7 @@ class CommandSerializer {
 
     serializedCommand += command.options().inject('') { result, key, value ->
       if (value instanceof String) {
-        "${result} ${key} ${value}"
+        "${result} ${key}${argumentSeparator}${value}"
       } else if (value) {
         "${result} ${key}"
       } else {
