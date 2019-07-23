@@ -20,16 +20,18 @@ abstract class CommandSerializer {
       }
     }
 
-    serializedCommand += command.options().inject('') { result, key, value ->
-      String formattedKey = formatKey(key)
-      String formattedValue = formatValue(value)
+    if (command.metaClass.respondsTo(command, 'options') && command.options()) {
+      serializedCommand += command.options().inject('') { result, key, value ->
+        String formattedKey = formatKey(key)
+        String formattedValue = formatValue(value)
 
-      if (formattedValue instanceof String) {
-        "${result} ${formattedKey}${optionSeparator}${formattedValue}"
-      } else if (formattedValue) {
-        "${result} ${formattedKey}"
-      } else {
-        result
+        if (formattedValue instanceof String) {
+          "${result} ${formattedKey}${optionSeparator}${formattedValue}"
+        } else if (formattedValue) {
+          "${result} ${formattedKey}"
+        } else {
+          result
+        }
       }
     }
 
