@@ -11,6 +11,6 @@ class SwiftCommandSerializer extends CommandSerializer {
   }
 
   def formatValue(def value) {
-    value
+    /"${value}"/
   }
 }
