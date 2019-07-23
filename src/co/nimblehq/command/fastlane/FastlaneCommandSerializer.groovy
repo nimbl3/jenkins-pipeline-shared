@@ -11,7 +11,7 @@ class FastlaneCommandSerializer extends CommandSerializer {
   }
 
   def formatValue(def value) {
-    if ("${value}" instanceof GString) {
+    if (value instanceof GString || value instanceof String) {
       /"${value}"/
     } else if (value) {
       'true'

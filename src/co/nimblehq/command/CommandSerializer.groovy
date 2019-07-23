@@ -25,7 +25,7 @@ abstract class CommandSerializer {
         String formattedKey = formatKey(key)
         def formattedValue = formatValue(value)
 
-        if ("${formattedValue}" instanceof GString) {
+        if (formattedValue instanceof GString || formattedValue instanceof String) {
           "${result} ${formattedKey}${optionSeparator}${formattedValue}"
         } else if (formattedValue) {
           "${result} ${formattedKey}"
