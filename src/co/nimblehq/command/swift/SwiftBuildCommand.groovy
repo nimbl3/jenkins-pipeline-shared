@@ -1,8 +1,8 @@
-package co.nimblehq.swift
+package co.nimblehq.command.swift
 
 class SwiftBuildCommand extends SwiftCommand {
 
-  final String command = 'build'
+  final String action = 'build'
 
   boolean buildTests = false
   String packagePath
