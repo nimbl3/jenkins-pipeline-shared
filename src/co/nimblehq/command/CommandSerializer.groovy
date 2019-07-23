@@ -20,8 +20,8 @@ abstract class CommandSerializer {
       }
     }
 
-    if (command.metaClass.respondsTo(command, 'options') && command.options()) {
-      serializedCommand += command.options().inject('') { result, key, value ->
+    if (command.hasProperty('options') && command.options) {
+      serializedCommand += command.options.inject('') { result, key, value ->
         String formattedKey = formatKey(key)
         def formattedValue = formatValue(value)
 

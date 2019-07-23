@@ -5,13 +5,9 @@ class FastlaneCommand {
   final String name = 'fastlane'
 
   String lane
-  Map parameters
+  Map options
 
   List arguments() {
     [lane]
-  }
-
-  Map options() {
-    parameters
   }
 }

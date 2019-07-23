@@ -5,13 +5,9 @@ class FastlaneRunCommand extends FastlaneCommand {
   final String action = 'run'
 
   String fastlaneAction
-  Map parameters
+  Map options
 
   List arguments() {
     [fastlaneAction]
-  }
-
-  Map options() {
-    parameters
   }
 }
