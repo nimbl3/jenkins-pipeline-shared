@@ -1,9 +1,9 @@
-import co.nimblehq.command.CommandSerializer
 import co.nimblehq.command.swift.SwiftTestCommand
+import co.nimblehq.command.swift.SwiftCommandSerializer
 
 def call(Map args = [:]) {
   SwiftTestCommand swiftTestCommand = new SwiftTestCommand()
   swiftTestCommand.packagePath = args.packagePath
-  CommandSerializer commandSerializer = new CommandSerializer()
+  SwiftCommandSerializer commandSerializer = new SwiftCommandSerializer()
   sh commandSerializer.serialize(swiftTestCommand)
 }
