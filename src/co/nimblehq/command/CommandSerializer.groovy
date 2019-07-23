@@ -9,7 +9,7 @@ abstract class CommandSerializer {
   String serialize(def command) {
     String serializedCommand = command.name
 
-    if (command.action) {
+    if (command.hasProperty('action') && command.action) {
       serializedCommand += " ${command.action}"
     }
 
