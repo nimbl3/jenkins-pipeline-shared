@@ -10,8 +10,17 @@ class FastlaneCommand implements Command {
   Map parameters = [:]
 
   Map options() {
-    Map parameters = parameters.clone()
+    Map parameters = convertKeysToSnakeCase(parameters)
     parameters[lane] = true
     return parameters
+  }
+
+  Map convertKeysToSnakeCase(Map map) {
+    Map convertedMap = [:]
+    map.each { key, value ->
+      String snakeCasedKey = key.replaceAll(/([A-Z])/, /_$1/).toLowerCase().replaceAll(/^_/, '')
+      convertedMap[snakeCasedKey] = value
+    }
+    convertedMap
   }
 }

@@ -8,7 +8,7 @@ class FastlaneRunCommand extends FastlaneCommand {
   Map parameters = [:]
 
   Map options() {
-    Map parameters = parameters.clone()
+    Map parameters = convertKeysToSnakeCase(parameters)
     parameters[fastlaneAction] = true
     return parameters
   }
