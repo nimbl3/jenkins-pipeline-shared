@@ -2,7 +2,7 @@ package co.nimblehq.command
 
 abstract class CommandSerializer {
 
-  abstract String argumentSeparator
+  abstract String optionSeparator
 
   abstract String formatKey(String key)
   abstract def formatValue(def value)
