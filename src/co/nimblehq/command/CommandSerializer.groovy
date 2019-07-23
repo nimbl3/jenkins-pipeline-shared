@@ -5,6 +5,7 @@ abstract class CommandSerializer {
   abstract String argumentSeparator
 
   abstract String formatKey(String key)
+  abstract def formatValue(def value)
 
   String serialize(def command) {
     String serializedCommand = command.name
@@ -15,10 +16,11 @@ abstract class CommandSerializer {
 
     serializedCommand += command.options().inject('') { result, key, value ->
       String formattedKey = formatKey(key)
+      String formattedValue = formatValue(value)
 
-      if (value instanceof String) {
-        "${result} ${formattedKey}${argumentSeparator}\"${value}\""
-      } else if (value) {
+      if (formattedValue instanceof String) {
+        "${result} ${formattedKey}${argumentSeparator}\"${formattedValue}\""
+      } else if (formattedValue) {
         "${result} ${formattedKey}"
       } else {
         result

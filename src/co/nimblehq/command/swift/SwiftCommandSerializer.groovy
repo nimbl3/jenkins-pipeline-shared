@@ -9,4 +9,8 @@ class SwiftCommandSerializer extends CommandSerializer {
   String formatKey(String key) {
     "--${key.replaceAll(/([A-Z])/, /-$1/).toLowerCase()}"
   }
+
+  def formatValue(def value) {
+    value
+  }
 }
