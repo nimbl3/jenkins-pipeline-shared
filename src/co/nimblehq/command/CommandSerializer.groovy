@@ -17,7 +17,7 @@ abstract class CommandSerializer {
       String formattedKey = formatKey(key)
 
       if (value instanceof String) {
-        "${result} ${formattedKey}${argumentSeparator}${value}"
+        "${result} ${formattedKey}${argumentSeparator}\"${value}\""
       } else if (value) {
         "${result} ${formattedKey}"
       } else {
