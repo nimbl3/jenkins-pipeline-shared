@@ -11,6 +11,10 @@ class SwiftCommandSerializer extends CommandSerializer {
   }
 
   def formatValue(def value) {
-    /"${value}"/
+    if (value instanceof String) {
+      /"${value}"/
+    } else {
+      value
+    }
   }
 }
