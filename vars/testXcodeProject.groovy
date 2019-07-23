@@ -1,6 +1,9 @@
+import co.nimblehq.command.Summon
+import co.nimblehq.command.fastlane.FastlaneCommand
+import co.nimblehq.command.fastlane.FastlaneCommandSerializer
+
 def call(Map args = [:]) {
-  GroovyShell groovyShell = new GroovyShell()
-  File file = new File('vars/fastlane.groovy')
-  def fastlane = groovyShell.parse(file)
-  fastlane.call args, 'scan'
+  FastlaneCommand fastlaneCommand = new FastlaneCommand(lane: 'scan', parameters: args)
+  FastlaneCommandSerializer commandSerializer = new FastlaneCommandSerializer()
+  sh Summon.bin(commandSerializer.serialize(fastlaneCommand))
 }
