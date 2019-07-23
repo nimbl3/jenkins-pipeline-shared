@@ -1,7 +1,9 @@
+import co.nimblehq.command.CommandSerializer
+import co.nimblehq.command.swift.SwiftTestCommand
+
 def call(Map args = [:]) {
-  String options = ''
-  if (args.packagePath != null) {
-    options = " --package-path ${args.packagePath}"
-  }
-  sh 'swift test' + options
+  SwiftTestCommand swiftTestCommand = new SwiftTestCommand()
+  swiftTestCommand.packagePath = args.packagePath
+  CommandSerializer commandSerializer = new CommandSerializer()
+  sh commandSerializer.serialize(swiftTestCommand)
 }
