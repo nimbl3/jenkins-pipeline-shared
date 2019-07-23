@@ -6,11 +6,11 @@ class SwiftCommandSerializer extends CommandSerializer {
 
   final String optionSeparator = ' '
 
-  String formatKey(String key) {
+  String formatOptionKey(String key) {
     "--${key.replaceAll(/([A-Z])/, /-$1/).toLowerCase()}"
   }
 
-  def formatValue(def value) {
+  def formatOptionValue(def value) {
     if (value instanceof GString || value instanceof String) {
       /"${value}"/
     } else {

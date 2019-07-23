@@ -4,8 +4,8 @@ abstract class CommandSerializer {
 
   abstract String optionSeparator
 
-  abstract String formatKey(String key)
-  abstract def formatValue(def value)
+  abstract String formatOptionKey(String key)
+  abstract def formatOptionValue(def value)
 
   String serialize(def command) {
     String serializedCommand = command.name
@@ -22,8 +22,8 @@ abstract class CommandSerializer {
 
     if (command.hasProperty('options') && command.options) {
       serializedCommand += command.options.inject('') { result, key, value ->
-        String formattedKey = formatKey(key)
-        def formattedValue = formatValue(value)
+        String formattedKey = formatOptionKey(key)
+        def formattedValue = formatOptionValue(value)
 
         if (formattedValue instanceof GString || formattedValue instanceof String) {
           "${result} ${formattedKey}${optionSeparator}${formattedValue}"
