@@ -5,11 +5,11 @@ class FastlaneRunCommand extends FastlaneCommand {
   final String action = 'run'
 
   String fastlaneAction
-  Map parameters = [:]
+  Map parameters
 
   Map options() {
-    Map parameters = convertKeysToSnakeCase(parameters)
+    Map parameters = parameters.clone()
     parameters[fastlaneAction] = true
-    return parameters
+    parameters
   }
 }

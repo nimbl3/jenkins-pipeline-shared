@@ -2,13 +2,10 @@ package co.nimblehq.command.swift
 
 class SwiftTestCommand extends SwiftCommand {
 
-  final String action = 'test'
-
-  String packagePath
+  final String action = 'build'
+  Map options
 
   Map options() {
-    [
-      '--package-path': packagePath
-    ]
+    options
   }
 }
