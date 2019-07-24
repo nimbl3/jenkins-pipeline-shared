@@ -15,9 +15,7 @@ abstract class CommandSerializer {
     }
 
     if (command.metaClass.respondsTo(command, 'arguments') && command.arguments()) {
-      command.arguments().each { argument ->
-        serializedCommand += / "${argument}"/
-      }
+      command.arguments().each { argument -> serializedCommand += / "${argument}"/ }
     }
 
     if (command.hasProperty('options') && command.options) {
