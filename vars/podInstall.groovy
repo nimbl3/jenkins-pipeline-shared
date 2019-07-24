@@ -1,7 +1,6 @@
-def call(Map args = [:]) {
-  String options = ''
-  if (args.projectDirectory != null) {
-    options = " --project-directory=${args.projectDirectory}"
-  }
-  sh 'summon/bin pod install' + options
+import co.nimblehq.command.Summon
+import co.nimblehq.command.Pod
+
+def call(Map options = [:]) {
+  sh Summon.bin(Pod.install(options))
 }
