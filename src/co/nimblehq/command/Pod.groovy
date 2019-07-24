@@ -2,7 +2,7 @@ package co.nimblehq.command
 
 import co.nimblehq.command.pod.*
 
-class Fastlane {
+class Pod {
 
   private static PodCommandSerializer commandSerializer = new PodCommandSerializer()
 
