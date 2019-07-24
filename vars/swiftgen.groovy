@@ -1,3 +1,5 @@
+import co.nimblehq.command.Summon
+
 def call() {
-  sh 'summon/bin swiftgen'
+  sh Summon.bin('swiftgen')
 }
