@@ -1,8 +1,5 @@
-import co.nimblehq.command.swift.SwiftBuildCommand
-import co.nimblehq.command.swift.SwiftCommandSerializer
+import co.nimblehq.command.Swift
 
 def call(Map options = [:]) {
-  SwiftBuildCommand swiftBuildCommand = new SwiftBuildCommand(options: options)
-  SwiftCommandSerializer commandSerializer = new SwiftCommandSerializer()
-  sh commandSerializer.serialize(swiftBuildCommand)
+  sh Swift.build(options)
 }
