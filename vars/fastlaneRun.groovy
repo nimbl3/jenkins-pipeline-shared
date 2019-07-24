@@ -1,9 +1,6 @@
 import co.nimblehq.command.Summon
-import co.nimblehq.command.fastlane.FastlaneRunCommand
-import co.nimblehq.command.fastlane.FastlaneCommandSerializer
+import co.nimblehq.command.Fastlane
 
 def call(Map parameters = [:], String action) {
-  FastlaneRunCommand fastlaneRunCommand = new FastlaneRunCommand(fastlaneAction: action, options: parameters)
-  FastlaneCommandSerializer commandSerializer = new FastlaneCommandSerializer()
-  sh Summon.bin(commandSerializer.serialize(fastlaneRunCommand))
+  sh Summon.bin(Fastlane.run(parameters, action))
 }
